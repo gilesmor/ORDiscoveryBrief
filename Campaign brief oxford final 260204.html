@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Discovery Brief - OXFORd</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #24B283;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #181919;
+            letter-spacing: -0.5px;
+        }
+        
+        h1 {
+            color: #181919;
+            margin-bottom: 5px;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #336655;
+            margin-bottom: 30px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 25px;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: #181919;
+            margin-bottom: 15px;
+            font-size: 17px;
+            font-weight: 700;
+            border-left: 4px solid #24B283;
+            padding-left: 12px;
+        }
+        
+        .field-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #181919;
+            font-size: 13px;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        input[type="file"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Outfit', sans-serif;
+            transition: border-color 0.2s;
+        }
+        
+        input[type="file"] {
+            padding: 8px 12px;
+        }
+        
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #24B283;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .inline-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .triple-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            margin: 0;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 6px;
+            accent-color: #24B283;
+        }
+        
+        .helper-text {
+            font-size: 12px;
+            color: #336655;
+            margin-top: 4px;
+            font-style: italic;
+        }
+        
+        .upload-zone {
+            border: 2px dashed #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            text-align: center;
+            background: #fafafa;
+            margin-top: 8px;
+        }
+        
+        .upload-zone:hover {
+            border-color: #24B283;
+            background: #f0fdf4;
+        }
+        
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        button {
+            padding: 12px 24px;
+            background: #24B283;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: 'Outfit', sans-serif;
+            transition: background 0.2s;
+        }
+        
+        button:hover {
+            background: #2EE5A8;
+        }
+        
+        button.secondary {
+            background: #336655;
+        }
+        
+        button.secondary:hover {
+            background: #764294;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .actions {
+                display: none;
+            }
+            .upload-zone {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">OXFORd</div>
+        </div>
+        
+        <h1>Campaign Discovery Brief</h1>
+        <p class="subtitle">Audio • Podcast • Influencer Performance Marketing</p>
+        
+        <!-- BRAND & BUSINESS -->
+        <div class="section">
+            <h2>Brand & Business</h2>
+            <div class="field-group">
+                <label>Brand/Product Name</label>
+                <input type="text" id="brandName" placeholder="e.g., Apple iPhone 25">
+            </div>
+            <div class="field-group">
+                <label>Campaign Name (Internal)</label>
+                <input type="text" id="campaignName" placeholder="e.g., Q3 Influencer & Podcast Scale-up">
+            </div>
+            <div class="field-group">
+                <label>Business Challenge</label>
+                <textarea id="businessChallenge" placeholder="What business problem are we solving?"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Brand Documents & Guidelines</label>
+                <div class="upload-zone">
+                    <input type="file" id="brandDocs" multiple accept=".pdf,.doc,.docx,.ppt,.pptx">
+                    <div class="helper-text">Upload brand guidelines, style guides, messaging docs, etc.</div>
+                </div>
+            </div>
+            <div class="field-group">
+                <label>Brand Values & Social Responsibility</label>
+                <textarea id="brandValues" placeholder="Political/social causes supported? Values-driven partnerships? Sensitivities to be aware of?"></textarea>
+                <div class="helper-text">Include any content restrictions or brand safety requirements upfront</div>
+            </div>
+        </div>
+        
+        <!-- OBJECTIVES -->
+        <div class="section">
+            <h2>Campaign Objectives</h2>
+            <div class="field-group">
+                <label>Primary Objective (SMART Goals)</label>
+                <textarea id="primaryObjective" placeholder="Specific, Measurable, Achievable, Relevant, Time-bound goals. E.g., Increase qualified leads by 25% QoQ, achieve 3.5x ROAS by end of Q3, drive 15% lift in brand awareness in target markets"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Secondary Objective</label>
+                <textarea id="secondaryObjective" placeholder="What would be a bonus win?"></textarea>
+            </div>
+        </div>
+        
+        <!-- BUDGET & TIMING -->
+        <div class="section">
+            <h2>Budget & Timing</h2>
+            <div class="inline-fields">
+                <div class="field-group">
+                    <label>Test Budget (if applicable)</label>
+                    <input type="text" id="testBudget" placeholder="e.g., $250,000">
+                </div>
+                <div class="field-group">
+                    <label>Full Campaign Budget (annual rollout)</label>
+                    <input type="text" id="fullBudget" placeholder="e.g., $10,000,000">
+                </div>
+            </div>
+            <div class="inline-fields">
+                <div class="field-group">
+                    <label>Launch Date</label>
+                    <input type="date" id="launchDate">
+                </div>
+                <div class="field-group">
+                    <label>Campaign Duration</label>
+                    <input type="text" id="duration" placeholder="e.g., 12 weeks, Q1 2026">
+                </div>
+            </div>
+        </div>
+        
+        <!-- TARGETING -->
+        <div class="section">
+            <h2>Audience & Targeting</h2>
+            <div class="field-group">
+                <label>Primary Target Audience</label>
+                <textarea id="primaryAudience" placeholder="Demographics, psychographics, behaviors, media consumption habits"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Audience Research & Segmentation Files</label>
+                <div class="upload-zone">
+                    <input type="file" id="audienceDocs" multiple accept=".pdf,.xlsx,.csv,.ppt,.pptx">
+                    <div class="helper-text">Upload audience research, segmentation studies, persona docs, etc.</div>
+                </div>
+            </div>
+            <div class="field-group">
+                <label>Geography</label>
+                <input type="text" id="geography" placeholder="National, Regional (list markets), or Geo-targeted clusters">
+                <div class="helper-text">List specific markets, DMAs, or geo restrictions</div>
+            </div>
+            <div class="field-group">
+                <label>Key Consumer Insights</label>
+                <textarea id="consumerInsights" placeholder="What influences their relationship with the brand/category?"></textarea>
+            </div>
+        </div>
+        
+        <!-- MEDIA STRATEGY -->
+        <div class="section">
+            <h2>Media Strategy</h2>
+            <div class="field-group">
+                <label>Channels In Scope</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="radio"> Terrestrial Radio</label>
+                    <label><input type="checkbox" id="podcast"> Podcast</label>
+                    <label><input type="checkbox" id="streaming"> Streaming Audio</label>
+                    <label><input type="checkbox" id="influencer"> Influencer/Creator</label>
+                    <label><input type="checkbox" id="youtube"> YouTube</label>
+                    <label><input type="checkbox" id="social"> Social</label>
+                    <label><input type="checkbox" id="other"> Other</label>
+                </div>
+            </div>
+            <div class="field-group">
+                <label>Channel Priorities & Rationale</label>
+                <textarea id="channelNotes" placeholder="e.g., Primary focus on terrestrial radio for consistency, podcast for performance, influencer for authenticity"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Channels NOT In Scope</label>
+                <input type="text" id="excludedChannels" placeholder="">
+            </div>
+        </div>
+        
+        <!-- MEASUREMENT INFRASTRUCTURE -->
+        <div class="section">
+            <h2>Current Measurement Infrastructure</h2>
+            <div class="field-group">
+                <label>Audio Channel Measurement (if applicable)</label>
+                <textarea id="audioMeasurement" placeholder="How do you currently measure radio/podcast/streaming audio? Tools, methodologies, attribution windows?"></textarea>
+            </div>
+            <div class="field-group">
+                <label>YouTube/Influencer Measurement (if applicable)</label>
+                <textarea id="influencerMeasurement" placeholder="How do you currently track influencer/creator/YouTube performance? Promo codes, pixels, UTMs, affiliates?"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Other Digital Channels Measurement</label>
+                <textarea id="otherMeasurement" placeholder="Measurement setup for paid search, social, display, etc."></textarea>
+            </div>
+            <div class="field-group">
+                <label>Cross-Channel Attribution Techniques</label>
+                <textarea id="attributionTechniques" placeholder="Do you use MMM (Marketing Mix Modeling), MTA (Multi-Touch Attribution), geo-lift studies, or other cross-channel attribution techniques?"></textarea>
+                <div class="helper-text">Include vendor names and implementation status</div>
+            </div>
+        </div>
+        
+        <!-- INFLUENCER/CREATOR STRATEGY -->
+        <div class="section">
+            <h2>Influencer & Creator Strategy</h2>
+            <div class="field-group">
+                <label>Creator/Host Preferences</label>
+                <textarea id="creatorPrefs" placeholder="Authentic experience preferred? Unscripted? Local connections? Content style?"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Content Restrictions & Guidelines</label>
+                <textarea id="contentRestrictions" placeholder="Topics to avoid, tone guidelines, format preferences"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Brand Safety Score (1-10)</label>
+                <input type="number" id="brandSafety" min="1" max="10" placeholder="e.g., 6">
+                <div class="helper-text">1 = Very conservative, 10 = Open to edgy content. Note: Research shows edgier content often correlates with stronger performance, though this must be balanced with brand safety concerns.</div>
+            </div>
+        </div>
+        
+        <!-- CREATIVE & MESSAGING -->
+        <div class="section">
+            <h2>Creative & Messaging</h2>
+            <div class="field-group">
+                <label>Brand Positioning</label>
+                <textarea id="positioning" placeholder="How does the brand fit into consumers' lives? What does it stand for?"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Creative Platform/Strategy (if applicable)</label>
+                <textarea id="creativeStrategy" placeholder="Core creative idea, campaign theme, messaging pillars"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Offer/Call-to-Action (if applicable)</label>
+                <input type="text" id="offer" placeholder="Current best offer or promotion">
+            </div>
+            <div class="field-group">
+                <label>Promo Code Structure (if applicable)</label>
+                <input type="text" id="promoCodes" placeholder="e.g., PODCAST20, unique codes per show, vanity URLs">
+            </div>
+        </div>
+        
+        <!-- HISTORICAL PERFORMANCE -->
+        <div class="section">
+            <h2>Historical Performance & Context</h2>
+            <div class="field-group">
+                <label>Historical Channel Mix & Performance</label>
+                <textarea id="historicalMix" placeholder="What audio and influencer channels have you used before? What worked? What didn't? Specific performance metrics?"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Seasonality Patterns</label>
+                <textarea id="seasonality" placeholder="Are there specific times of year when performance is stronger/weaker? Holiday impacts? Weather impacts?"></textarea>
+            </div>
+            <div class="field-group">
+                <label>Key Learnings from Past Campaigns</label>
+                <textarea id="keyLearnings" placeholder="What are the top 3-5 things you've learned from past campaigns that should inform this one? (audio / influencer preferred but can relate to any channel.)"></textarea>
+            </div>
+        </div>
+        
+        <!-- COMPETITIVE CONTEXT -->
+        <div class="section">
+            <h2>Competitive Context</h2>
+            <div class="field-group">
+                <label>Direct Competitors</label>
+                <input type="text" id="directCompetitors" placeholder="e.g., Samsung Galaxy, Google Pixel">
+            </div>
+            <div class="field-group">
+                <label>Indirect Competitors</label>
+                <input type="text" id="indirectCompetitors" placeholder="e.g., Refurbished phone market, budget Android brands">
+            </div>
+            <div class="field-group">
+                <label>Competitive Intelligence</label>
+                <textarea id="competitiveIntel" placeholder="What are competitors doing that we should know about? Any competitive advantages/disadvantages to be aware of?"></textarea>
+            </div>
+        </div>
+        
+        <!-- ADDITIONAL NOTES -->
+        <div class="section">
+            <h2>Additional Context</h2>
+            <div class="field-group">
+                <label>Other Important Information</label>
+                <textarea id="additionalNotes" placeholder="Anything else the team should know that wasn't covered above?"></textarea>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button onclick="submitToSheets()" id="submitBtn">Submit to Google Sheets</button>
+            <button onclick="window.print()">Print / Save as PDF</button>
+            <button class="secondary" onclick="copyToClipboard()">Copy All Fields</button>
+            <button class="secondary" onclick="clearForm()">Clear Form</button>
+        </div>
+    </div>
+    
+    <script>
+        // CONFIGURATION - Replace with your Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby.../exec';
+        
+        // Auto-save to localStorage
+        const fields = document.querySelectorAll('input:not([type="file"]), textarea, select');
+        
+        fields.forEach(field => {
+            // Load saved data
+            const savedValue = localStorage.getItem(field.id);
+            if (savedValue) {
+                if (field.type === 'checkbox') {
+                    field.checked = savedValue === 'true';
+                } else {
+                    field.value = savedValue;
+                }
+            }
+            
+            // Save on change
+            field.addEventListener('input', () => {
+                if (field.type === 'checkbox') {
+                    localStorage.setItem(field.id, field.checked);
+                } else {
+                    localStorage.setItem(field.id, field.value);
+                }
+            });
+        });
+        
+        function clearForm() {
+            if (confirm('Clear all fields? This will delete all saved data.')) {
+                fields.forEach(field => {
+                    if (field.type === 'checkbox') {
+                        field.checked = false;
+                    } else {
+                        field.value = '';
+                    }
+                    localStorage.removeItem(field.id);
+                });
+            }
+        }
+        
+        function copyToClipboard() {
+            let text = 'OXFORd CAMPAIGN DISCOVERY BRIEF\n';
+            text += 'Audio • Podcast • Influencer Performance Marketing\n\n';
+            
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const heading = section.querySelector('h2')?.textContent;
+                if (heading) {
+                    text += '\n' + heading.toUpperCase() + '\n' + '='.repeat(heading.length) + '\n\n';
+                }
+                
+                const sectionFields = section.querySelectorAll('input:not([type="file"]), textarea, select');
+                sectionFields.forEach(field => {
+                    const label = section.querySelector(`label[for="${field.id}"]`)?.textContent || 
+                                 field.previousElementSibling?.textContent;
+                    let value = '';
+                    
+                    if (field.type === 'checkbox') {
+                        if (field.checked) {
+                            value = '✓';
+                        }
+                    } else if (field.value) {
+                        value = field.value;
+                    }
+                    
+                    if (value && label) {
+                        text += `${label}: ${value}\n\n`;
+                    }
+                });
+            });
+            
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Brief copied to clipboard!');
+            });
+        }
+        
+        function submitToSheets() {
+            // Check if script URL is configured
+            if (GOOGLE_SCRIPT_URL === 'YOUR_SCRIPT_URL_HERE') {
+                alert('Please configure your Google Apps Script URL first. See instructions in the HTML file.');
+                return;
+            }
+            
+            // Collect all form data
+            const formData = {};
+            const textFields = document.querySelectorAll('input:not([type="file"]):not([type="checkbox"]), textarea, select');
+            
+            textFields.forEach(field => {
+                if (field.value) {
+                    const label = document.querySelector(`label[for="${field.id}"]`)?.textContent || 
+                                 field.previousElementSibling?.textContent || 
+                                 field.id;
+                    formData[label] = field.value;
+                }
+            });
+            
+            // Collect checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const selectedChannels = [];
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    const label = cb.nextSibling?.textContent?.trim();
+                    if (label) selectedChannels.push(label);
+                }
+            });
+            if (selectedChannels.length > 0) {
+                formData['Channels In Scope'] = selectedChannels.join(', ');
+            }
+            
+            // Add timestamp
+            formData['Submission Date'] = new Date().toISOString();
+            
+            // Show loading state
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+            
+            // Send to Google Sheets
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                alert('Brief submitted successfully to Google Sheets!');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting brief. Please try again or check your internet connection.');
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        }
+    </script>
+</body>
+</html>
